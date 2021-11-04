@@ -83,3 +83,4 @@ Material:
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.9433962, g: 0.62239707, b: 0.36044857, a: 1}
     - _TopColor: {r: 0.24230155, g: 0.91300124, b: 0.9339623, a: 1}
+  m_BuildTextureStacks: []
