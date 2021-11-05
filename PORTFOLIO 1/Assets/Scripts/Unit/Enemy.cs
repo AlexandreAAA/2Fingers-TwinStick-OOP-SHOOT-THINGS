@@ -76,7 +76,7 @@ public class Enemy : Unit
 
     private void EnemyHit()
     {
-        if (_currentHp == 0)
+        if (_currentHp == 0 )
         {
             Instantiate(_explosionGoo, transform.position, Quaternion.identity);
             Destroy(gameObject);

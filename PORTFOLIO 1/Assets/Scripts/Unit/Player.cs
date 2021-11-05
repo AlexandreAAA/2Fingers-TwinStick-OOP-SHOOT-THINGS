@@ -210,6 +210,8 @@ public class Player : Unit
         {
             _rigidbody.AddForce(Physics.gravity * _gravityMultplifier, ForceMode.Acceleration);
         }
+
+        PlayerFall();
     }
 
     private void Shoot()
@@ -221,9 +223,9 @@ public class Player : Unit
 
     }
 
-    private void PlayerHit()
+    public void PlayerHit()
     {
-        if (_playerCurrentHp._value == 0)
+        if (_playerCurrentHp._value == 0 || _transform.position.y < -10f)
         {
             Instantiate(_explosion, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
@@ -235,6 +237,15 @@ public class Player : Unit
             _isInvincible = true;
             _playerCurrentHp._value--;
             StartCoroutine(Invincible());
+        }
+    }
+
+    private void PlayerFall()
+    {
+        if (_transform.position.y < -10f)
+        {
+            _playerCurrentHp._value = 0;
+            PlayerHit();
         }
     }
 

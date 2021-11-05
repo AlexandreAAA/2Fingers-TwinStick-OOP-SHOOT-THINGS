@@ -17,6 +17,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float _spawnRange;
 
+    [SerializeField]
+    private bool _spawnOn = false;
+
+    public bool SpawnOn
+    {
+        get { return _spawnOn; }
+        set { _spawnOn = value; }
+    }
+
     public int _waveNumber;
     public int _slimenb;
     public int _bloodnb;
@@ -35,7 +44,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnManagerLife(_slimenb, _bloodnb, _spikenb);
+        if (_spawnOn)
+        {
+            SpawnManagerLife(_slimenb, _bloodnb, _spikenb);
+        }
     }
 
     private Vector3 GenerateSpawnPosition()
